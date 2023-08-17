@@ -1,0 +1,25 @@
+<div class="container">
+  <form #myForm="ngForm" (ngSubmit)="myForm.valid && fetchResponse()">
+    <div class="input-container">
+      <label for="s1"><span class="required-field">*</span>S1:</label>
+      <input type="text" id="s1" [(ngModel)]="s1" name="s1" placeholder="Enter value for s1" required maxlength="500">
+      <div *ngIf="myForm.submitted && myForm.controls['s1'].invalid" class="error-message">
+        S1 is required and must be within 500 characters.
+      </div>
+    </div>
+    <div class="input-container">
+      <label for="s2"><span class="required-field">*</span>S2:</label>
+      <input type="text" id="s2" [(ngModel)]="s2" name="s2" placeholder="Enter value for s2" required maxlength="500">
+      <div *ngIf="myForm.submitted && myForm.controls['s2'].invalid" class="error-message">
+        S2 is required and must be within 500 characters.
+      </div>
+    </div>
+    <div class="button-container">
+      <button class="concatenate-button" type="submit">Result</button>
+    </div>
+  </form>
+  <div class="output-container">
+    <label for="output">Output:</label>
+    <textarea id="output" rows="4" [(ngModel)]="responseText" readonly></textarea>
+  </div>
+</div>
